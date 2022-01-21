@@ -44,6 +44,16 @@ class IOInterface
   end
 
   def check_exit
-    abort 'See you soon!'
+    puts 'To exit, enter "stop" or "next" to continue'
+    state = gets.chomp
+
+    case state
+    when 'stop'
+      abort 'See you soon!'
+    when 'next'
+      true
+    else
+      check_exit
+    end
   end
 end
